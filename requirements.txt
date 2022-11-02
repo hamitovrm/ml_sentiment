@@ -1,5 +1,5 @@
+SentencePiece
+sacremoses
 streamlit
 tensorflow-cpu
 transformers
-SentencePiece
-sacremoses

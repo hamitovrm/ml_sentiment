@@ -3,8 +3,6 @@ import io
 import streamlit as st
 from transformers import MarianTokenizer, TFMarianMTModel
 
-#from PIL import Image
-
 def translation(str_cl):
     batch = tokenizer([str_cl], return_tensors="tf")
     gen = model.generate(**batch)

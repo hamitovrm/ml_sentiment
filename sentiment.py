@@ -30,7 +30,6 @@ def translation(str_cl):
 
 
 if result:
-    inp_text = st.text_input('Введите текст', 'Обожаю питон')
     st.write('Англ: ',inp_text)
     translation(inp_text)
     cl = classifier(str(inp_text))

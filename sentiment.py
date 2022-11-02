@@ -4,22 +4,6 @@ import streamlit as st
 from transformers import MarianTokenizer, TFMarianMTModel
 
 #from PIL import Image
-classifier = pipeline("sentiment-analysis", "blanchefort/rubert-base-cased-sentiment")
-
-
-
-st.title('Тональность текста')
-inp_text = st.text_input('Англ:', 'Обожаю питон')
-st.write('',inp_text)
-
-result = st.button('Определить тональность')
-
-src = "en"  # source language
-trg = "ru"  # target language
-sample_text = "hello"
-model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
-model = TFMarianMTModel.from_pretrained(model_name)
-tokenizer = MarianTokenizer.from_pretrained(model_name)
 
 def translation(str_cl):
     batch = tokenizer([str_cl], return_tensors="tf")
@@ -28,6 +12,21 @@ def translation(str_cl):
     st.write('Рус:', str(tr))
 
 
+classifier = pipeline("sentiment-analysis", "blanchefort/rubert-base-cased-sentiment")
+
+st.title('Тональность текста')
+inp_text = st.text_input('Англ:', 'Обожаю питон')
+st.write('',inp_text)
+
+src = "en"  # source language
+trg = "ru"  # target language
+sample_text = "hello"
+model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
+model = TFMarianMTModel.from_pretrained(model_name)
+tokenizer = MarianTokenizer.from_pretrained(model_name)
+translation(sample_text)
+
+result = st.button('Определить тональность')
 
 if result:
     st.write('Англ: ',inp_text)

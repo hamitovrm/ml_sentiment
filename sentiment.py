@@ -1,7 +1,9 @@
 from transformers import pipeline
 import io
 import streamlit as st
-from PIL import Image
+from transformers import MarianTokenizer, TFMarianMTModel
+
+#from PIL import Image
 classifier = pipeline("sentiment-analysis", "blanchefort/rubert-base-cased-sentiment")
 
 
@@ -11,6 +13,18 @@ inp_text = st.text_input('Введите текст', 'Обожаю питон')
 st.write('',inp_text)
 
 result = st.button('Определить тональность')
+
+src = "en"  # source language
+trg = "ru"  # target language
+sample_text = "hello"
+model_name = f"Helsinki-NLP/opus-mt-{src}-{trg}"
+model = TFMarianMTModel.from_pretrained(model_name)
+tokenizer = MarianTokenizer.from_pretrained(model_name)
+batch = tokenizer([inp_text], return_tensors="tf")
+gen = model.generate(**batch)
+tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
+st.write(tr)
+
 
 if result:
     cl = classifier(str(inp_text))

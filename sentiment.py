@@ -15,7 +15,7 @@ result = st.button('Определить тональность')
 if result:
     cl = classifier(str(inp_text))
     for i in cl:
-        st.write(str(i))
+        st.write((str(i["label"]),' с вероятностью '))
         #st.write((str(i["label"]),' с вероятностью ',str(100*float(i["score"])),'%')
 
     

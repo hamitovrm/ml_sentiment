@@ -7,12 +7,13 @@ classifier = pipeline("sentiment-analysis", "blanchefort/rubert-base-cased-senti
 
 
 st.title('Тональность текста')
-inp_text = st.text('Введите текст')
+inp_text = st.text_input('Введите текст', 'Обожаю питон')
+st.write('',inp_text)
 
 result = st.button('Определить тональность')
 
 if result:
-    c = classifier(inp_text)
+    c = classifier(str(inp_text))
     st.write(str(c))
 	#st.write(str(c))
     

@@ -1,5 +1,7 @@
 SentencePiece
 sacremoses
 streamlit
-tensorflow-cpu
+torch
 transformers
+tensorflow-cpu
+

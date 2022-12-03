@@ -11,7 +11,10 @@ def translation(str_cl):
     st.write('Рус:', str(tr))
 
 @st.cache(allow_output_mutation=True)
-classifier = pipeline("sentiment-analysis", "blanchefort/rubert-base-cased-sentiment")
+def model_load (name,  model)
+    return pipeline(name,  model)
+
+classifier = model_load("sentiment-analysis", "blanchefort/rubert-base-cased-sentiment")
 
 st.title('Тональность текста')
 src = "en"  # source language

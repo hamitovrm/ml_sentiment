@@ -3,13 +3,14 @@ import io
 import streamlit as st
 from transformers import MarianTokenizer, TFMarianMTModel
 
+@st.cache(allow_output_mutation=True)
 def translation(str_cl):
     batch = tokenizer([str_cl], return_tensors="tf")
     gen = model.generate(**batch)
     tr=tokenizer.batch_decode(gen, skip_special_tokens=True)
     st.write('Рус:', str(tr))
 
-
+@st.cache(allow_output_mutation=True)
 classifier = pipeline("sentiment-analysis", "blanchefort/rubert-base-cased-sentiment")
 
 st.title('Тональность текста')

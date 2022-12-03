@@ -11,8 +11,8 @@ def translation(str_cl):
     st.write('Рус:', str(tr))
 
 @st.cache(allow_output_mutation=True)
-def model_load (a,  b)
-    return pipeline(a,  b)
+def model_load(a,  b)
+    return pipeline(a,b)
 
 classifier = model_load("sentiment-analysis", "blanchefort/rubert-base-cased-sentiment")
 

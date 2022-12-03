@@ -3,5 +3,5 @@ sacremoses
 streamlit
 torch
 transformers
-tensorflow-cpu
+tensorflow
 

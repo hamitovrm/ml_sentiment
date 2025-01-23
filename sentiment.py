@@ -28,7 +28,7 @@ translation(sample_text)
 inp_text = st.text_input('Англ:', 'Обожаю питон')
 st.write('',inp_text)
 
-result = st.button('Определить тональность')
+result = st.button('Определить тональность текста')
 
 if result:
    st.write('Англ: ',inp_text)
